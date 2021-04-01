@@ -1,6 +1,3 @@
-{{-- <p> Hello, {{ $user->name}}!</p> --}}
-<a href="logout"> Do you want to logout?</a>
-<br>
-<br>
-<br>
+<p>Hello, Henrik!</p>
 
+<a href="logout">logout </a>

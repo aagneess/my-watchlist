@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-// use Illuminate\Support\Facades\View;
+
 
 class DashboardController extends Controller
 {
@@ -14,15 +14,12 @@ class DashboardController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke()
+    public function __invoke(Request $request)
     {
         $user = Auth::user();
 
-        return view(
-            'dashboard',
-            [
-                'user' => $user
-            ]
-        );
+        return view('dashboard', [
+            'user' => $user
+        ]);
     }
 }
