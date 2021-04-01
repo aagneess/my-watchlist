@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,9 @@ use App\Http\Controllers\DashboardController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//
-Route::view('/', 'index')->name('login')->middleware('guest');
+//->name('login')->middleware('guest')
+Route::view('/', 'index');
 Route::post('login', LoginController::class);
-Route::get('dashboard', DashboardController::class)->middleware('auth');
-//
+Route::get('dashboard', DashboardController::class);
+//->middleware('auth')
+Route::get('logout', LogoutController::class);
