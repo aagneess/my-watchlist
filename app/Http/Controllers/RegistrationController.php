@@ -29,17 +29,12 @@ class RegistrationController extends Controller
             'password' => 'required|min:6',
         ]);
         // confirmed|
-        User::create([
+        $user = User::create([
             'email' => $request->email,
             'name' => $request->name,
             'password' => Hash::make($request->password)
         ]);
-
-        $user = Auth::user();
-        $id = Auth::id();
-
-        Auth::attempt($request->only('email', 'password'));
-
+        Auth::login($user);
 
         return redirect('dashboard');
     }

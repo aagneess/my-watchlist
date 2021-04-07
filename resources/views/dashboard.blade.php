@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-<p>Hello, {{ $user->name }}! Do you want to <a href="logout">logout</a>?
-</p>
-
-
-=======
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,4 +36,4 @@
 </body>
 
 </html>
->>>>>>> 98e5188cb0183aa41c91ad25bd6c8f3f54318502
+
