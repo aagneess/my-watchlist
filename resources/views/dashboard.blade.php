@@ -1,3 +1,4 @@
-<p>Hello, Henrik!</p>
+<p>Hello, {{ $user->name }}! Do you want to <a href="logout">logout</a>?
+</p>
 
-<a href="logout">logout </a>
+
