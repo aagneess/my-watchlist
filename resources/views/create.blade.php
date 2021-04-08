@@ -1,62 +1,45 @@
-@include('errors')
-<h2>Register</h2>
-<form method="POST" action="/create">
-    @csrf
-    <div class="form-group">
-        <label for="name">Name:</label>
-        <input type="text" class="form-control" id="name" name="name">
-    </div>
+<!DOCTYPE html>
+<html lang="en">
 
-    <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" class="form-control" id="email" name="email">
-    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
 
-    <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" class="form-control" id="password" name="password">
-    </div>
-    {{-- <div class="form-group">
-        <label for="Confirm your password">Confirm your password:</label>
-        <input type="password" class="form-control" id="password" name="password">
-    </div> --}}
-    <div class="form-group">
-        <button style="cursor:pointer" type="submit" class="btn btn-primary">Submit</button>
-    </div>
-
-</form>
-
-
-{{-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-
-<!------ Include the above in your HEAD tag ---------->
-
-<div class="container register-form">
-            <div class="form">
-                <div class="note">
-                    <p>Create an account!</p>
-                </div>
-
-                <div class="form-content">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Your Name *" value=""/>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Phone Number *" value=""/>
-                            </div>
+<body>
+    <div style ="margin-top: 10%" class="container">
+        <div class="row">
+			<div class="col-md-5 mx-auto">
+			<div id="first">
+				 <div class="myform form ">
+					  <div class="logo mb-3">
+						 <div class="col-md-12 text-center">
+							<h1>Join us</h1>
+						 </div>
+					</div>
+                   <form action="create" method="post" name="create">
+                    @csrf
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Name</label>
+                            <input type="text" name="name"  class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name">
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Your Password *" value=""/>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Confirm Password *" value=""/>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="button" class="btnSubmit">Submit</button>
-                </div>
-            </div>
-        </div> --}}
+                           <div class="form-group">
+                              <label for="exampleInputEmail1">Email</label>
+                              <input type="email" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                           </div>
+                           <div class="form-group">
+                              <label for="exampleInputEmail1">Password</label>
+                              <input type="password" name="password" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
+                           </div>
+                           <div class="col-md-12 text-center ">
+                              <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm" style="background-color: #343a40">Create an account</button>
+                           </div>
+                    </form>
+				</div>
+			</div>
+        @include('errors')
+</body>
+</html>
