@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,3 +49,10 @@
 
 
 
+=======
+@extends('layout.main')
+
+@section('content')
+<div>Movies go here!</div>
+@endsection
+>>>>>>> 158cc1192136381fe3254e7e89822137c1dd3452
