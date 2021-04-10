@@ -15,12 +15,12 @@ class LoginController extends Controller
      */
     public function __invoke(Request $request)
     {
+
         $credentials = $request->only(['email', 'password']);
 
         if (Auth::attempt($credentials)) {
-            return redirect('dashboard');
+            return view('/index');
         }
-
-        return back()->withErrors('Whoops! Please try to login again.');
+        return back()->withErrors('Whoops! Please try again.');
     }
 }

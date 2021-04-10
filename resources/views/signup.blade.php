@@ -1,5 +1,5 @@
 @extends('layout.main')
-
+@include('errors')
 @section('content')
-<div>Movies go here!</div>
+<h1>Signup</h1>
 @endsection
