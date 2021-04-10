@@ -26,13 +26,13 @@ class LoginController extends Controller
         // ];
         $credentials = $request->only(['email', 'password']);
 
-        dd($credentials);
+        // dd($credentials);
         if (Auth::attempt($credentials)) {
 
 
             return redirect('dashboard');
+        } else {
+            return back()->withErrors('Whoops! Please try to login again.');
         }
-
-        return back()->withErrors('Whoops! Please try to login again.');
     }
 }
