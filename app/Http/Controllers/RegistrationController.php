@@ -18,7 +18,7 @@ class RegistrationController extends Controller
 
     public function index()
     {
-        return view('create');
+        return view('signup');
     }
 
     public function store(Request $request)
@@ -36,6 +36,6 @@ class RegistrationController extends Controller
         ]);
         Auth::login($user);
 
-        return redirect('dashboard');
+        return redirect('index');
     }
 }

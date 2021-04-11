@@ -1,4 +1,4 @@
-@include('errors')
+{{-- @include('errors') --}}
 @extends('layout.main')
 
 @section('content')

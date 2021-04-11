@@ -1,3 +1,6 @@
+{{-- @extends('layout.main')
+@include('errors')
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,6 +43,7 @@
                     </form>
 				</div>
 			</div>
-        @include('errors')
+        {{-- @include('errors') --}}
 </body>
 </html>
+@endsection --}}

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <livewire:styles>
+    {{-- <livewire:styles> --}}
 </head>
 @include('errors')
 
@@ -26,9 +26,13 @@
                 </div>
 
                 <ul class="list-inline text-right">
-                    <li class="list-inline-item"><a href="login">Login</a></li>
-                    <li class="list-inline-item"><a href="logout">Logout</a></li>
                     <li class="list-inline-item"><a href="movies">Popular Movies</a></li>
+                    @if (Auth::check())
+                    <li class="list-inline-item"><a href="logout">Logout</a></li>
+                    @else
+                    <li class="list-inline-item"><a href="login">Login</a></li>
+                    <li class="list-inline-item"><a href="signup">Join us</a></li>
+                    @endif
                 </ul>
             </div>
 
@@ -84,4 +88,4 @@
 @endif
 
 
-@include('errors')
+{{-- @include('errors') --}}
