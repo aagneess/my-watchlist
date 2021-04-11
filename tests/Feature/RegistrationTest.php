@@ -32,12 +32,12 @@ class RegistrationTest extends TestCase
         //     'password' => '12345678',
         // ]);
         // confirmed|$user = User::
-        $this->get('/signup')
-            ->type('UserTest', 'name')
-            ->type('example@test.se', 'email')
-            ->type('123456789', 'password')
-            ->press('Create an account')
-            ->seePageIs('/index');
+        // $this->get('/signup')
+        //     ->type('UserTest', 'name')
+        //     ->type('example@test.se', 'email')
+        //     ->type('123456789', 'password')
+        //     ->press('Create an account')
+        //     ->seePageIs('/index');
         // ->assertSeeText('Hello, User test!')
 
     }
