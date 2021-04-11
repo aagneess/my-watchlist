@@ -26,14 +26,26 @@ class LoginTest extends TestCase
 
     // public function test_login_user()
     // {
-
     //     $user = User::create([
     //         'name' => 'User test',
     //         'email' => 'example@yrgo.se',
     //         'password' => password_hash('123456', 1)
 
     //     ]);
+
     //     Auth::login($user);
+
+    //     $response = $this->actingAs($user)
+    //         ->withSession(['foo' => 'bar'])
+    //         ->get('login');
+
+    //     $response->assertSeeText('Hello, User test!');
+    // }
+
+    // public function test_login_user()
+    // {
+
+    //
 
     //     $response = $this
     //         ->followingRedirects()
