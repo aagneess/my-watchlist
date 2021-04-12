@@ -1,21 +1,27 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
-use App\Http\Controllers\MovieController;
-use App\Http\Controllers\SignupController;
-use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ListController;
+use App\Http\Controllers\MoviesController;
+
+// Movies
+Route::get('/', [MoviesController::class, 'index'])->name('index');
+Route::post('movies/{id}', [MoviesController::class, 'show'])->name('index');
+
+//Search function
+Route::get('movies/{id}', 'MoviesController@show')->name('movies.show');
+//Route::get('/', 'MoviesController@index')->name('movies.index');
 
 // Homepage
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
 // Account related
-Route::post('signup', SignupController::class);
-Route::view('/signup', 'signup');
+// Route::post('signup', SignupController::class);
+// Route::view('/signup', 'signup');
 
 Route::get('login', function () {
     return view('login');
@@ -23,10 +29,5 @@ Route::get('login', function () {
 Route::post('login', LoginController::class);
 Route::get('logout', LogoutController::class);
 
-// Search for movies
-Route::get('search', SearchController::class)->middleware('auth');
-
 // List
-Route::get('movies', function () {
-    return view('movies');
-});
+Route::get('your-list', ListController::class);

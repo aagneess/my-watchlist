@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 
-class SearchController extends HomeController
+class ListController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -16,8 +16,6 @@ class SearchController extends HomeController
      */
     public function __invoke(Request $request)
     {
-        $searchMovies = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/search/movie')
-            ->json()['results'];
+        return view('your-list');
     }
 }

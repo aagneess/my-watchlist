@@ -16,27 +16,22 @@
         <div class="text-light bg-dark w-auto p-3">
             <div class="row">
 
-                <div class="col">
+                <livewire:search>
 
-                    <form class="form-inline" action="search" method="GET">
-                        <input class="form-control  float-left mr-sm-2" type="search" placeholder="Look for movies" aria-label="Search">
-                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-
-                </div>
-
-                <ul class="list-inline text-right">
-                    <li class="list-inline-item"><a href="login">Login</a></li>
-                    <li class="list-inline-item"><a href="logout">Logout</a></li>
-                    <li class="list-inline-item"><a href="movies">Popular Movies</a></li>
-                </ul>
+                    <ul class="list-inline text-right">
+                        <li class="list-inline-item"><a href="/">Home</a></li>
+                        @if (Auth::check())
+                        <li class="list-inline-item"><a href="logout">Logout</a></li>
+                        @else
+                        <li class="list-inline-item"><a href="login">Login</a></li>
+                        @endif
+                        @if (Auth::check())
+                        <li class="list-inline-item"><a href="your-list">Your List</a></li>
+                        @endif
+                    </ul>
             </div>
-
-
             <br>
             <br>
-
-            <h1 class="display-2 justify-center"><a href="/">My Watchlist</a></h1>
     </nav>
 
     <main>
@@ -44,44 +39,8 @@
         @yield('content')
 
     </main>
+
+    <livewire:scripts>
 </body>
 
 </html>
-
-
-@if($response ?? '')
-@if($response['drinks'] === null )
-@error('search')
-<div class="">
-    {{ $message }}
-</div>
-@enderror
-@else
-
-@foreach($response['drinks'] as $drink)
-<div class="drink">
-    <h2> {{ $drink['strDrink'] }} </h2>
-    <img src=" {{ $drink['strDrinkThumb'] }}" />
-
-
-    @if ($favorite = $user->favorites->firstWhere('name', $drink['strDrink']))
-    <form action="delete" method="post">
-        @csrf
-        <input type="hidden" name="id" value="{{ $favorite->id }}" />
-        <button type="submit">Unlike</button>
-    </form>
-    @else
-    <form action="/favorites" method="POST">
-        @csrf
-        <input type="hidden" name="image" value=" {{ $drink['strDrinkThumb'] }}" />
-        <input type="hidden" name="name" value=" {{ $drink['strDrink'] }}" />
-        <button type="submit">Like</button>
-    </form>
-    @endif
-</div>
-@endforeach
-@endif
-@endif
-
-
-@include('errors')
