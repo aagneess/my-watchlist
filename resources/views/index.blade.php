@@ -75,7 +75,7 @@
                 <br>
                 <p class="card-text">{{ $movie['overview'] }}</p>
                 <br>
-                <input type="hidden" id="{{ $movie['id'] }}">
+                {{-- <input type="hidden" id="{{ $movie['id'] }}"></input> --}}
                 <button>Add to your list!</button>
 
             </div>
