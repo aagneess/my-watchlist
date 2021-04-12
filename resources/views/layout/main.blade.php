@@ -7,15 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/resources/css/app.css">
+
     <livewire:styles>
 </head>
 @include('errors')
 
-<body bg-black>
+<body>
     <nav class="w-100">
-        <div class="text-light bg-dark w-auto p-3">
+        <div class="flex text-light bg-dark w-auto p-3">
             <div class="row">
-
                 <livewire:search>
 
                     <ul class="list-inline text-right">
@@ -34,7 +35,7 @@
             <br>
     </nav>
 
-    <main>
+    <main class="p-5">
 
         @yield('content')
 
