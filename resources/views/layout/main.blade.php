@@ -11,7 +11,7 @@
 </head>
 @include('errors')
 
-<body>
+<body bg-black>
     <nav class="w-100">
         <div class="text-light bg-dark w-auto p-3">
             <div class="row">

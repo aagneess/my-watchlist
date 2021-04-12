@@ -5,9 +5,9 @@
 <h1 class="display-3 justify-center">Popular Movies</h1>
 
 <div class="row">
-    <div class="col">
-        @foreach ($popularMovies as $movie)
-        <div class="card w-100 text-white bg-dark mb-3">
+    @foreach ($popularMovies as $movie)
+    <div class="col-8 col-sm-6 col-md-3 col-lg-4 col-xl-3 col-xxl-5">
+        <div class="card w-100 text-white bg-dark">
             <img width="200px" src="{{ 'https://image.tmdb.org/t/p/w500'.$movie['poster_path'] }}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{ $movie['title'] }}</h5>

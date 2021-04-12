@@ -14,18 +14,10 @@ Route::post('movies/{id}', [MoviesController::class, 'show'])->name('index');
 Route::get('movies/{id}', 'MoviesController@show')->name('movies.show');
 //Route::get('/', 'MoviesController@index')->name('movies.index');
 
-// Homepage
-// Route::get('/', function () {
-//     return view('index');
-// });
-
-// Account related
-// Route::post('signup', SignupController::class);
-// Route::view('/signup', 'signup');
-
 Route::get('login', function () {
     return view('login');
 })->name('login')->middleware('guest');
+
 Route::post('login', LoginController::class);
 Route::get('logout', LogoutController::class);
 
