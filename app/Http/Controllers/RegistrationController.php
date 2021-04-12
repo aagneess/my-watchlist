@@ -36,6 +36,6 @@ class RegistrationController extends Controller
         ]);
         Auth::login($user);
 
-        return redirect('index');
+        return redirect('/');
     }
 }
