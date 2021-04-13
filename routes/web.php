@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegistrationController;
-
 use App\Http\Controllers\ListController;
 use App\Http\Controllers\MoviesController;
 
