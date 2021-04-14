@@ -1,19 +1,16 @@
 @extends('layout.main')
-
+@include('errors')
 @section('content')
-
 
 <div class="card mb-3 text-white bg-dark mb-3" style="max-width: 900px;">
     <div class="row g-0">
         <div class="col-md-8">
-            <img src="{{ 'https://image.tmdb.org/t/p/w780'.$movie['poster_path'] }}" alt="movie poster">
+            <img src="{{ 'https://image.tmdb.org/t/p/w780'.$movie['poster_path'] }}" style="max-width: 20rem;" alt="movie poster">
         </div>
         <div class="col-md-8">
             <div class="card-body">
                 <h1 class="display-4 justify-center">{{ $movie['title'] }}</h1>
                 <p class="card-text">{{ $movie['overview'] }}</p>
-
-
                 <p class="card-text">
                     <small class="text-white">
                         <span>
@@ -26,6 +23,15 @@
                         <span>{{ \Carbon\Carbon::parse($movie['release_date'])->format('M, d, Y') }}</span>
                     </small>
                 </p>
+
+                <form action="" method="POST">
+                    @csrf
+                    <input type="hidden" name="id" value="{{ $movie['id'] }}" />
+                    <input type="hidden" name="title" value="{{ $movie['title'] }}" />
+                    <input type="hidden" name="poster_path" value="{{ $movie['poster_path'] }}" />
+                    <input type="hidden" name="overview" value="{{ $movie['overview'] }}" />
+                    <button type="submit">Add to your watchlist!</button>
+                </form>
             </div>
         </div>
     </div>
