@@ -7,6 +7,7 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ListController;
 use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\AddMovieController;
+use App\Http\Controllers\DeleteMovieController;
 
 // Movies
 Route::get('/', [MoviesController::class, 'index'])->name('index');
@@ -28,3 +29,6 @@ Route::post('/signup', [RegistrationController::class, 'store']);
 Route::post('movies/{id}', AddMovieController::class)->middleware('auth');
 Route::delete('movies/{id}', AddMovieController::class)->middleware('auth');
 Route::get('your-list', ListController::class)->middleware('auth');
+
+// Delete from list
+Route::post('delete', DeleteMovieController::class);

@@ -1,16 +1,15 @@
 @extends('layout.main')
-
 @section('content')
 
-<h1 class="display-3 justify-center">Popular Movies</h1>
+<h1 class="display-4 d-flex justify-content-center">Popular Movies</h1>
 
-<div class="row">
+<div class="row d-flex justify-content-center">
     @foreach ($popularMovies as $movie)
 
     <div class="col-8 col-sm-6 col-md-5 col-lg-4 col-xl-3 p-2">
         <a href="{{ route('movie', $movie['id']) }}">
             <div class="card w-200 h-100 text-white bg-dark border-0">
-                <img src="{{ 'https://image.tmdb.org/t/p/w780'.$movie['poster_path'] }}" class="card-img-top" alt="...">
+                <img src="{{ 'https://image.tmdb.org/t/p/w780'.$movie['poster_path'] }}" class="card-img-top" alt="movie poster">
                 <div class="card-body">
                     <h5 class="card-title">{{ $movie['title'] }}</h5>
                     <span>

@@ -18,14 +18,14 @@
                 <livewire:search>
 
                     <ul class="list-inline text-right">
-                        <li class="list-inline-item"><a href="/">Home</a></li>
+                        <li class="list-inline-item"><a class="text-white" href="/">Home</a></li>
                         @if (Auth::check())
-                        <li class="list-inline-item"><a href="logout">Logout</a></li>
+                        <li class="list-inline-item"><a class="text-white" href="logout">Logout</a></li>
                         @else
-                        <li class="list-inline-item"><a href="login">Login</a></li>
+                        <li class="list-inline-item"><a class="text-white" href="login">Login</a></li>
                         @endif
                         @if (Auth::check())
-                        <li class="list-inline-item"><a href="/your-list">Your List</a></li>
+                        <li class="list-inline-item"><a class="text-white" href="/your-list">Your List</a></li>
                         @endif
                     </ul>
 
@@ -34,7 +34,7 @@
             <br>
     </nav>
 
-    <main class="p-1">
+    <main class="p-4">
 
         @yield('content')
 
