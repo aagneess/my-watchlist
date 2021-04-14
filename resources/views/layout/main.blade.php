@@ -25,7 +25,7 @@
                         <li class="list-inline-item"><a href="login">Login</a></li>
                         @endif
                         @if (Auth::check())
-                        <li class="list-inline-item"><a href="your-list">Your List</a></li>
+                        <li class="list-inline-item"><a href="/your-list">Your List</a></li>
                         @endif
                     </ul>
 
