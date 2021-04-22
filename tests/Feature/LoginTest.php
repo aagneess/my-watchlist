@@ -12,59 +12,33 @@ use Tests\TestCase;
 class LoginTest extends TestCase
 {
     use RefreshDatabase;
+
     /**
      * A basic feature test example.
      *
      * @return void
      */
-    public function test_view_login_form()
+    public function testViewLoginForm()
     {
         $response = $this->get('login');
         $response->assertSeeText('Email');
         $response->assertStatus(200);
     }
+    public function testLoginUser()
+    {
+        $user = new User();
+        $user->name = 'Mr Robot';
+        $user->email = 'example@yrgo.se';
+        $user->password = Hash::make('1235678');
+        $user->save();
 
-    // public function test_login_user()
-    // {
-    //     $user = User::create([
-    //         'name' => 'User test',
-    //         'email' => 'example@yrgo.se',
-    //         'password' => password_hash('123456', 1)
+        $response = $this
+            ->followingRedirects()
+            ->post('login', [
+                'email' => 'example@yrgo.se',
+                'password' => '1235678',
+            ]);
 
-    //     ]);
-
-    //     Auth::login($user);
-
-    //     $response = $this->actingAs($user)
-    //         ->withSession(['foo' => 'bar'])
-    //         ->get('login');
-
-    //     $response->assertSeeText('Hello, User test!');
-    // }
-
-    // public function test_login_user()
-    // {
-
-    //
-
-    //     $response = $this
-    //         ->followingRedirects()
-    //         ->post('login', [
-    //             'email' => 'example@yrgo.se',
-    //             'password' => '123456',
-    //         ]);
-
-    //     $response->assertSeeText('Hello, User test!');
-    // }
-
-    // public function test_login_user_without_password()
-    // {
-    //     $response = $this
-    //         ->followingRedirects()
-    //         ->post('login', [
-    //             'email' => 'example@yrgo.se',
-    //         ]);
-
-    //     $response->assertSeeText('Whoops! Please try to login again.');
-    // }
+        $response->assertStatus(200);
+    }
 }

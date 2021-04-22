@@ -11,7 +11,7 @@
                             <h1>Login</h1>
                         </div>
                     </div>
-                    <form action="login" method="post" name="login">
+                    <form action="/login" method="post" name="login">
                         @csrf
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email</label>
@@ -25,6 +25,7 @@
                             <p class="text-center">By signing up you accept our <a href="#">Terms Of Use</a></p>
                         </div>
                         <div class="col-md-12 text-center ">
+
                             <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm" style="background-color: #343a40">Login</button>
                         </div>
                         <div class="form-group">

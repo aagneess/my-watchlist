@@ -26,7 +26,7 @@
 
                 </div>
             </div>
+        </a>
     </div>
-    </a>
     @endforeach
     @endsection

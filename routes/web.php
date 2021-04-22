@@ -8,6 +8,7 @@ use App\Http\Controllers\ListController;
 use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\AddMovieController;
 use App\Http\Controllers\DeleteMovieController;
+use App\Http\Controllers\SearchController;
 
 // Movies
 Route::get('/', [MoviesController::class, 'index'])->name('index');
@@ -17,8 +18,8 @@ Route::get('movies/{id}', [MoviesController::class, 'show'])->name('movie');
 Route::get('login', function () {
     return view('login');
 })->name('login')->middleware('guest');
-
 Route::post('login', LoginController::class);
+
 Route::get('logout', LogoutController::class);
 
 
@@ -32,3 +33,6 @@ Route::get('your-list', ListController::class)->middleware('auth');
 
 // Delete from list
 Route::post('delete', DeleteMovieController::class);
+
+// Search
+Route::get('search', SearchController::class)->name('search');

@@ -26,7 +26,7 @@
 
                     <form action="" method="POST">
                         @csrf
-                        <input type="hidden" name="id" value="{{ $movie['id'] }}" />
+                        <input type="hidden" name="movie_id" value="{{ $movie['id'] }}" />
                         <input type="hidden" name="title" value="{{ $movie['title'] }}" />
                         <input type="hidden" name="poster_path" value="{{ $movie['poster_path'] }}" />
                         <input type="hidden" name="overview" value="{{ $movie['overview'] }}" />

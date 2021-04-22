@@ -19,15 +19,14 @@ class AddMovieController extends Controller
 
     public function __invoke(Request $request)
     {
-        //$id = $request->input('{movie_id}');
         $this->validate($request, [
-            'id' => 'required|int',
+            'movie_id' => 'required|string',
             'title' => 'required|string',
             'poster_path' => 'required|string',
         ]);
 
         $addMovie = new Watchlist();
-        $addMovie->movie_id = $request->input('id');
+        $addMovie->movie_id = $request->input('movie_id');
         $addMovie->title = $request->input('title');
         $addMovie->poster_path = $request->input('poster_path');
         $addMovie->user_id = Auth::id();

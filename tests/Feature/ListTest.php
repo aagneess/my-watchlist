@@ -6,11 +6,9 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Response\type;
 use Tests\TestCase;
 
-class RegistrationTest extends TestCase
+class ListTest extends TestCase
 {
     use RefreshDatabase;
     /**
@@ -18,13 +16,7 @@ class RegistrationTest extends TestCase
      *
      * @return void
      */
-    public function testViewRegisterForm()
-    {
-        $response = $this->get('signup');
-        $response->assertSeeText('Email');
-        $response->assertStatus(200);
-    }
-    public function testRegisterUser()
+    public function testViewListAfterLoginUser()
     {
         $user = new User();
         $user->name = 'Mr Robot';
@@ -32,6 +24,18 @@ class RegistrationTest extends TestCase
         $user->password = Hash::make('1235678');
         $user->save();
 
-        $this->assertDatabaseHas('users', ['email' => 'example@yrgo.se']);
+        $response = $this
+            ->followingRedirects()
+            ->post('login', [
+                'email' => 'example@yrgo.se',
+                'password' => '1235678',
+            ]);
+
+        $response = $this->actingAs($user)->get('/your-list');
+        if ($response->assertStatus(200)) {
+            $this->assertTrue(true);
+        } else {
+            $this->assertTrue(false);
+        }
     }
 }
